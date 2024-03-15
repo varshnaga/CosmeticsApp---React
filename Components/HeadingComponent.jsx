@@ -19,8 +19,8 @@ let HeadingComponent = () => {
     return (
     <div className="fixed">
         <div className="header-container">
-            <a class="menu-icon">
-                <i class="fa fa-bars" onClick={() => showNavItems()}></i>
+            <a className="menu-icon">
+                <i className="fa fa-bars" onClick={() => showNavItems()}></i>
             </a>
             <div className="logo-container">
             <Link to="/" style={{textDecoration: 'none', color:'unset'}}><img className="img" src={logo}></img></Link>

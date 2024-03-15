@@ -47,8 +47,8 @@ let Body = () => {
             <h3 className="shop-by-brands">SHOP BY BRANDS</h3>
             <div className="shop-card">
                 {shopBrands.map((shop) => (
-                    <div className="card">
-                        <img className="shopCard-image" key={shop.id} src={shop.img_url} onClick={() => setScroll(shop)} />
+                    <div className="card" key={shop.id}>
+                        <img className="shopCard-image" src={shop.img_url} onClick={() => setScroll(shop)} />
                     </div>
                 ))}
             </div>
