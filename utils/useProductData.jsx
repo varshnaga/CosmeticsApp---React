@@ -11,6 +11,9 @@ let useProductData = (productId) => {
         const requiredProduct = ALL_PRODUCTS.filter(product => product.product_id === productId);
         setProductDesc(requiredProduct);
     }, [])
+
+    /* Temporarily removed since the mock API's reached the maximum limit */
+
     // useEffect(() => {
     //     fetchProduct();
     // }, []);

@@ -5,8 +5,6 @@ import Body from './Components/BodyComponent';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import { useState } from 'react';
 import ProductDescription from './Components/ProductDescription';
-import AboutUs from "./Components/AboutUs";
-import ContactUs from "./Components/ContactUs";
 import { appStore } from './utils/appStore';
 import { Provider } from 'react-redux';
 import Cart from './Components/cart';
@@ -34,14 +32,6 @@ const appRouter = createBrowserRouter ([
             {
                 path: '/products/:productId',
                 element: <ProductDescription />
-            },
-            {
-                path: '/about',
-                element: <AboutUs />
-            },
-            {
-                path: '/contact',
-                element: <ContactUs />
             },
             {
                 path: '/cart.jsx',

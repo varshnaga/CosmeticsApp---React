@@ -1,6 +1,9 @@
+/* Temporarily removed since the mock API's reached the maximum limit */
 // export const ALL_BRANDS = "https://e0f67710-d50f-4944-96c3-44a6467a4e2c.mock.pstmn.io/allBrands";
+
 export const BESTSELLER_IMG_URL = "https://images-static.nykaa.com/uploads/0db149a9-d487-4770-8a0a-472e8f045d87.jpg?tr=w-1200,cm-pad_resize";
 
+/* Temporarily removed since the mock API's reached the maximum limit */
 // export const ALL_PRODUCTS = "https://90269fdb-ac51-47bd-8da4-26a3100da544.mock.pstmn.io/allProducts";
 
 export const ALL_PRODUCTS = [

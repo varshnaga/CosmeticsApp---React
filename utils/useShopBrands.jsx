@@ -4,6 +4,9 @@ import { ALL_BRANDS } from "../utils/constants";
 
 let useShopBrands = () => {
     const [listOfBrands, setListOfBrands] = useState(ALL_BRANDS);
+
+    /* Temporarily removed since the mock API's reached the maximum limit */
+
     // useEffect(() => {
     //     fetchAllBrands();
     // }, []);

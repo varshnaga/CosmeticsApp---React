@@ -1,4 +1,3 @@
-import ShopCard from "./ShopCard";
 import ProductCard from "./ProductCard";
 import Filters from "./Filters";
 import { useState, useEffect } from "react";
