@@ -1,0 +1,40 @@
+{
+  "name": "react_project",
+  "version": "1.0.0",
+  "description": "A Cosmetics app",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varshnaga/CosmeticsApp---React.git"
+  },
+  "keywords": [
+    "react",
+    "cosmetics",
+    "app"
+  ],
+  "author": "Varshini Nagarajan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/varshnaga/CosmeticsApp---React/issues"
+  },
+  "homepage": "https://github.com/varshnaga/CosmeticsApp---React#readme",
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "parcel": "^2.11.0",
+    "postcss": "^8.4.35",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "@parcel/transformer-react-refresh-wrap": "^2.11.0",
+    "@reduxjs/toolkit": "^2.2.1",
+    "axios": "^1.6.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.0"
+  }
+}
