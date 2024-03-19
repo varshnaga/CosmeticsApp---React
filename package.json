@@ -2,7 +2,7 @@
   "name": "react_project",
   "version": "1.0.0",
   "description": "A Cosmetics app",
-  "main": "app.js",
+  "app": "app.js",
   "scripts": {
     "test": "jest",
     "build": "parcel build index.html"
