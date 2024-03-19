@@ -20,7 +20,7 @@ let Filters = (props) => {
             props.updateFilteredList(props.listOfProducts);
         } else {
             const productsToView = [];
-            for(product of checkedProductTypes) {
+            for(let product of checkedProductTypes) {
                 productsToView.push(product.id)
             }
             const filteredList = props.listOfProducts.filter((product) =>(
