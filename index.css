@@ -572,7 +572,7 @@ hr {
 and (max-width: 1000px)
 {
     .onlineStatus {
-        margin-left: 20px;
+        margin-left: 310px;
     }
 
     .bestsellers {
@@ -669,6 +669,10 @@ and (max-width: 1000px)
         border-radius: 4px;
         color: white;
         font-size: medium;
+    }
+
+    .navItems {
+        display: none;
     }
 }
 

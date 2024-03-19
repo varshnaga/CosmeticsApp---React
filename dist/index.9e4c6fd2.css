@@ -545,7 +545,7 @@ hr {
 
 @media screen and (width >= 810px) and (width <= 1000px) {
   .onlineStatus {
-    margin-left: 20px;
+    margin-left: 310px;
   }
 
   .bestsellers {
@@ -642,6 +642,10 @@ hr {
     margin-right: 82px;
     padding: 8px;
     font-size: medium;
+  }
+
+  .navItems {
+    display: none;
   }
 }
 
