@@ -35,7 +35,7 @@ let Filters = (props) => {
         if (!checkedBrands.length) {
             props.updateFilteredList(props.listOfProducts);
         } else {
-            for (brand of checkedBrands) {
+            for (let brand of checkedBrands) {
                 brandFilter.push(parseInt(brand.id));
             }
             const filteredList = props.listOfProducts.filter((product) => (
