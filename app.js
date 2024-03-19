@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import HeadingComponent from './Components/HeadingComponent';
 import Body from './Components/BodyComponent';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-import { useState } from 'react';
 import ProductDescription from './Components/ProductDescription';
 import { appStore } from './utils/appStore';
 import { Provider } from 'react-redux';

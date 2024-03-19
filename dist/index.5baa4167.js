@@ -2975,23 +2975,23 @@ let MyApp = ()=>{
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headingComponentDefault.default), {}, void 0, false, {
                     fileName: "app.js",
-                    lineNumber: 16,
+                    lineNumber: 15,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Outlet), {}, void 0, false, {
                     fileName: "app.js",
-                    lineNumber: 17,
+                    lineNumber: 16,
                     columnNumber: 17
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "app.js",
-            lineNumber: 15,
+            lineNumber: 14,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "app.js",
-        lineNumber: 14,
+        lineNumber: 13,
         columnNumber: 9
     }, undefined);
 };
@@ -3001,7 +3001,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MyApp, {}, void 0, false, {
             fileName: "app.js",
-            lineNumber: 26,
+            lineNumber: 25,
             columnNumber: 18
         }, undefined),
         children: [
@@ -3009,7 +3009,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bodyComponentDefault.default), {}, void 0, false, {
                     fileName: "app.js",
-                    lineNumber: 30,
+                    lineNumber: 29,
                     columnNumber: 26
                 }, undefined)
             },
@@ -3017,7 +3017,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/products/:productId",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _productDescriptionDefault.default), {}, void 0, false, {
                     fileName: "app.js",
-                    lineNumber: 34,
+                    lineNumber: 33,
                     columnNumber: 26
                 }, undefined)
             },
@@ -3025,7 +3025,7 @@ const appRouter = (0, _reactRouterDom.createBrowserRouter)([
                 path: "/cart.jsx",
                 element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _cartDefault.default), {}, void 0, false, {
                     fileName: "app.js",
-                    lineNumber: 38,
+                    lineNumber: 37,
                     columnNumber: 26
                 }, undefined)
             }
@@ -3037,7 +3037,7 @@ root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.RouterP
     router: appRouter
 }, void 0, false, {
     fileName: "app.js",
-    lineNumber: 45,
+    lineNumber: 44,
     columnNumber: 13
 }, undefined));
 var _c;
@@ -39965,7 +39965,7 @@ let Filters = (props)=>{
         }
     };
     const setProductType = ()=>{
-        checkedProductTypes = document.querySelectorAll("input[name=productType]:checked");
+        let checkedProductTypes = document.querySelectorAll("input[name=productType]:checked");
         if (!checkedProductTypes.length) props.updateFilteredList(props.listOfProducts);
         else {
             const productsToView = [];

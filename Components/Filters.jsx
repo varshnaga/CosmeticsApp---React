@@ -15,7 +15,7 @@ let Filters = (props) => {
     }
     
     const setProductType = () => {
-        checkedProductTypes = document.querySelectorAll('input[name=productType]:checked');
+        let checkedProductTypes = document.querySelectorAll('input[name=productType]:checked');
         if (!checkedProductTypes.length) {
             props.updateFilteredList(props.listOfProducts);
         } else {
