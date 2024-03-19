@@ -27265,100 +27265,180 @@ let HeadingComponent = ()=>{
         nav.style.display === "block" ? nav.style.display = "none" : nav.style.display = "block";
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "fixed",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "header-container",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                    className: "menu-icon",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
-                        className: "fa fa-bars",
-                        onClick: ()=>showNavItems()
-                    }, void 0, false, {
-                        fileName: "Components/HeadingComponent.jsx",
-                        lineNumber: 23,
-                        columnNumber: 17
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "Components/HeadingComponent.jsx",
-                    lineNumber: 22,
-                    columnNumber: 13
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "logo-container",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/",
-                        style: {
-                            textDecoration: "none",
-                            color: "unset"
-                        },
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            className: "img",
-                            src: (0, _peachPngDefault.default)
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "fixed",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "header-container",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
+                            className: "menu-icon",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("i", {
+                                className: "fa fa-bars",
+                                onClick: ()=>showNavItems()
+                            }, void 0, false, {
+                                fileName: "Components/HeadingComponent.jsx",
+                                lineNumber: 24,
+                                columnNumber: 21
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "Components/HeadingComponent.jsx",
+                            lineNumber: 23,
+                            columnNumber: 17
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "logo-container",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                to: "/",
+                                style: {
+                                    textDecoration: "none",
+                                    color: "unset"
+                                },
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "img",
+                                    src: (0, _peachPngDefault.default)
+                                }, void 0, false, {
+                                    fileName: "Components/HeadingComponent.jsx",
+                                    lineNumber: 27,
+                                    columnNumber: 78
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "Components/HeadingComponent.jsx",
+                                lineNumber: 27,
+                                columnNumber: 17
+                            }, undefined)
                         }, void 0, false, {
                             fileName: "Components/HeadingComponent.jsx",
                             lineNumber: 26,
-                            columnNumber: 74
+                            columnNumber: 17
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "onlineStatus",
+                            children: [
+                                "Online Status: ",
+                                onlineStatus === true ? "\u2705" : "\uD83D\uDD34"
+                            ]
+                        }, void 0, true, {
+                            fileName: "Components/HeadingComponent.jsx",
+                            lineNumber: 29,
+                            columnNumber: 17
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "login",
+                            children: "Login"
+                        }, void 0, false, {
+                            fileName: "Components/HeadingComponent.jsx",
+                            lineNumber: 30,
+                            columnNumber: 17
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                            to: "./cart.jsx",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                className: "cart-icon",
+                                src: (0, _cartPngDefault.default)
+                            }, void 0, false, {
+                                fileName: "Components/HeadingComponent.jsx",
+                                lineNumber: 31,
+                                columnNumber: 39
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "Components/HeadingComponent.jsx",
+                            lineNumber: 31,
+                            columnNumber: 17
+                        }, undefined),
+                        cartItems.length !== 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "cart-count",
+                            children: cartItems.length
+                        }, void 0, false, {
+                            fileName: "Components/HeadingComponent.jsx",
+                            lineNumber: 32,
+                            columnNumber: 44
                         }, undefined)
-                    }, void 0, false, {
-                        fileName: "Components/HeadingComponent.jsx",
-                        lineNumber: 26,
-                        columnNumber: 13
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "Components/HeadingComponent.jsx",
-                    lineNumber: 25,
-                    columnNumber: 13
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                    className: "onlineStatus",
-                    children: [
-                        "Online Status: ",
-                        onlineStatus === true ? "\u2705" : "\uD83D\uDD34"
                     ]
                 }, void 0, true, {
                     fileName: "Components/HeadingComponent.jsx",
-                    lineNumber: 28,
+                    lineNumber: 22,
                     columnNumber: 13
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                    className: "login",
-                    children: "Login"
-                }, void 0, false, {
-                    fileName: "Components/HeadingComponent.jsx",
-                    lineNumber: 29,
-                    columnNumber: 13
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                    to: "./cart.jsx",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        className: "cart-icon",
-                        src: (0, _cartPngDefault.default)
-                    }, void 0, false, {
-                        fileName: "Components/HeadingComponent.jsx",
-                        lineNumber: 30,
-                        columnNumber: 35
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "Components/HeadingComponent.jsx",
-                    lineNumber: 30,
-                    columnNumber: 13
-                }, undefined),
-                cartItems.length !== 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                    className: "cart-count",
-                    children: cartItems.length
-                }, void 0, false, {
-                    fileName: "Components/HeadingComponent.jsx",
-                    lineNumber: 31,
-                    columnNumber: 40
                 }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "Components/HeadingComponent.jsx",
-            lineNumber: 21,
-            columnNumber: 9
-        }, undefined)
-    }, void 0, false, {
+            }, void 0, false, {
+                fileName: "Components/HeadingComponent.jsx",
+                lineNumber: 21,
+                columnNumber: 9
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "navItems",
+                style: {
+                    display: "none"
+                },
+                id: "menu-items",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: "Home"
+                            }, void 0, false, {
+                                fileName: "Components/HeadingComponent.jsx",
+                                lineNumber: 38,
+                                columnNumber: 28
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "Components/HeadingComponent.jsx",
+                            lineNumber: 38,
+                            columnNumber: 25
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {
+                            style: {
+                                width: "100%"
+                            }
+                        }, void 0, false, {
+                            fileName: "Components/HeadingComponent.jsx",
+                            lineNumber: 38,
+                            columnNumber: 45
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: "About Us"
+                            }, void 0, false, {
+                                fileName: "Components/HeadingComponent.jsx",
+                                lineNumber: 39,
+                                columnNumber: 28
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "Components/HeadingComponent.jsx",
+                            lineNumber: 39,
+                            columnNumber: 25
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                            fileName: "Components/HeadingComponent.jsx",
+                            lineNumber: 39,
+                            columnNumber: 49
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("li", {
+                                children: "Contact Us"
+                            }, void 0, false, {
+                                fileName: "Components/HeadingComponent.jsx",
+                                lineNumber: 40,
+                                columnNumber: 28
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "Components/HeadingComponent.jsx",
+                            lineNumber: 40,
+                            columnNumber: 25
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "Components/HeadingComponent.jsx",
+                    lineNumber: 37,
+                    columnNumber: 21
+                }, undefined)
+            }, void 0, false, {
+                fileName: "Components/HeadingComponent.jsx",
+                lineNumber: 36,
+                columnNumber: 9
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "Components/HeadingComponent.jsx",
         lineNumber: 20,
         columnNumber: 5

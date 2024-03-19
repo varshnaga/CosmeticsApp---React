@@ -558,4 +558,253 @@ hr {
 
 }
 
+.navItems {
+    display: none;
+}
+
+/* @media screen and (min-width:300px) {
+    .onlineStatus {
+        margin-left: 10px;
+    }
+} */
+
+@media screen and (min-width:810px)
+and (max-width: 1000px)
+{
+    .onlineStatus {
+        margin-left: 20px;
+    }
+
+    .bestsellers {
+        padding: 10px;
+        width: 700px;
+        margin-left: 40px;
+    }
+
+    .shopCard-image {
+        width: 120px;
+        height: 110px;
+    }
+
+    .shop-card {
+        gap: 10px;
+        padding: 20px;
+        margin-left: 60px;
+    }
+
+    .all-products-title {
+        padding-top: 20px;
+        margin-bottom: 50px;
+    }
+
+    .top-rated {
+        margin-left: 80px;
+    }
+
+    .filters-container {
+        top: 800px;
+        margin-right: 40px;
+        bottom: 0;
+        position:absolute;
+        background-color: transparent;
+    }
+
+    .search {
+        margin-left: 130px;
+    }
+
+    .products {
+        margin-left: 350px;
+    }
+
+    .product-card-container {
+        border: 1px solid #d6d6d6;
+        margin-top: 35px;
+        height: 400px;
+        width: 280px;
+        text-decoration: none;
+    }
+
+    .header-container {
+        z-index: 1;
+    }
+
+    .product-img{
+        margin-top: 240px;
+        margin-left: 15px;
+        height: 550px;
+        border: 1px solid #ccc6c6;
+        width: 300px;
+    }
+
+    .product-img img{
+        height: 250px;
+        padding-left: 7px;
+        margin-top: 100px;
+    }
+
+    .product-description {
+        margin-top: 240px;
+        height: 550px;
+        border: 1px solid #ccc6c6;
+        width: 500px;
+        margin-right: 15px;
+    }
+
+    .addToBag {
+        margin-top: 40px;
+    }
+
+    .cart-layout{
+        margin-left: 50px;
+    }
+
+    .clear-cart {
+        float: right;
+        margin-right: 82px;
+        margin-top: 10px;
+        padding: 8px;
+        background-color: #fc4c84;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        font-size: medium;
+    }
+}
+
+@media screen and (min-device-width:400px) 
+and (max-device-width:790px)
+ {
+    .img {
+        width: 250px;
+        margin-left: 15px;
+        padding-top: 33px;
+    }
+
+    .nav-items {
+        display: none;
+    }
+
+    .onlineStatus {
+        display: none;
+    }
+
+    .login {
+        margin-left: 450px;
+        font-size: 45px;
+        height: 80px;
+        width: 150px;
+        border-radius: 10px;
+        margin-top: 30px;
+    }
+
+    .cart-icon{
+        max-width: 100px;
+        margin-left: 50px;
+        width: 100px;
+        height: 110px;
+        margin-top: 15px;
+    }
+
+    .menu-icon {
+        display: block;
+        margin: 35px 50px;
+        font-size: 60px;
+    }
+
+    .navItems {
+        margin-top: 100px;
+        font-size: 50px;
+        display: inline-block;
+        height: 450px;
+        padding-left: 480px;
+        padding-right: 720px;
+        padding-top: 2px;
+        text-wrap: nowrap;
+        text-align: center;
+        background-color: #fc4c84;
+        position: relative;
+    }
+
+    .navItems ul  {
+        list-style-type: none;
+        color: white;
+        width: fit-content;
+        background-color: #fc4c84;
+        position: relative;
+    }
+
+    .navItems ul li hr {
+        border-width:0;
+        width: 100%;
+        color:gray;
+        background-color:gray
+    }
+
+    /* .navItems ul li {
+        height: 100px;
+    } */
+
+    .header-container {
+        height: 150px;
+        z-index: 1;
+    }
+
+    .bestsellers {
+        padding-left: 10px;
+        padding-top: 100px;
+        width: 1200px;
+        height: 300px;
+    }
+
+    .shop-by-brands{
+        font-size: x-large;
+        margin-left: 100px;
+        text-wrap: nowrap;
+    }
+
+    .shop-card {
+        padding: 100px 60px;
+        padding-top: 50px;
+        width: 100%;
+        
+    }
+
+    .body-container {
+        position: absolute;
+        overflow: hidden;
+    }
+
+    .shop-card {
+        gap: 50px;
+        padding: 0px 80px;
+        padding-top: 20px;
+    }
+
+    .shopCard-image {
+        width: 500px;
+        height: 350px;
+        display: block;
+    }
+
+    .search {
+        margin-left: 420px;
+    }
+
+
+    
+    
+
+    
+}
+
+
+
+
+
+
+
+
+
+
 
