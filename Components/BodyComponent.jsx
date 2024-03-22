@@ -1,7 +1,7 @@
 import ProductCard from "./ProductCard";
 import Filters from "./Filters";
 import { useState, useEffect } from "react";
-import { BESTSELLER_IMG_URL } from "../utils/constants";
+import Bestseller from "../Images/Bestseller.png"
 import axios from "axios";
 import { ALL_PRODUCTS } from "../utils/constants";
 import useShopBrands from "../utils/useShopBrands";
@@ -43,7 +43,7 @@ let Body = () => {
     return (
         
         <div className="body-container">
-            <img className="bestsellers" src={BESTSELLER_IMG_URL}></img>
+            <img className="bestsellers" src={Bestseller}></img>
             <h3 className="shop-by-brands">SHOP BY BRANDS</h3>
             <div className="shop-card">
                 {shopBrands.map((shop) => (
@@ -76,13 +76,13 @@ let Body = () => {
              </div>
 
             <div className="products-filter">
-                <Filters updateFilteredList={updateProducts} listOfProducts={listOfProducts} shopBrands={shopBrands} />
+                <Filters updateFilteredList={updateProducts} filteredList={filteredListOfProducts} listOfProducts={listOfProducts} shopBrands={shopBrands} />
                 <div className="products">
                     {filteredListOfProducts.map((product) => (
                         <ProductCard key={product.product_id} product={product} />
                     ))}
                     {
-                        filteredListOfProducts.length === 0 && <span class="no-products">No products to display.</span>
+                        filteredListOfProducts.length === 0 && <span className="no-products">No products to display.</span>
                     }
                 </div>
             </div>

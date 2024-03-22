@@ -35663,9 +35663,11 @@ var _productCardDefault = parcelHelpers.interopDefault(_productCard);
 var _filters = require("./Filters");
 var _filtersDefault = parcelHelpers.interopDefault(_filters);
 var _react = require("react");
-var _constants = require("../utils/constants");
+var _bestsellerPng = require("../Images/Bestseller.png");
+var _bestsellerPngDefault = parcelHelpers.interopDefault(_bestsellerPng);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _constants = require("../utils/constants");
 var _useShopBrands = require("../utils/useShopBrands");
 var _useShopBrandsDefault = parcelHelpers.interopDefault(_useShopBrands);
 var _s = $RefreshSig$();
@@ -35699,7 +35701,7 @@ let Body = ()=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "bestsellers",
-                src: (0, _constants.BESTSELLER_IMG_URL)
+                src: (0, _bestsellerPngDefault.default)
             }, void 0, false, {
                 fileName: "Components/BodyComponent.jsx",
                 lineNumber: 46,
@@ -35796,6 +35798,7 @@ let Body = ()=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _filtersDefault.default), {
                         updateFilteredList: updateProducts,
+                        filteredList: filteredListOfProducts,
                         listOfProducts: listOfProducts,
                         shopBrands: shopBrands
                     }, void 0, false, {
@@ -35814,7 +35817,7 @@ let Body = ()=>{
                                     columnNumber: 25
                                 }, undefined)),
                             filteredListOfProducts.length === 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                class: "no-products",
+                                className: "no-products",
                                 children: "No products to display."
                             }, void 0, false, {
                                 fileName: "Components/BodyComponent.jsx",
@@ -35855,7 +35858,7 @@ $RefreshReg$(_c, "Body");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./ProductCard":"kPETN","./Filters":"eX3Z1","react":"21dqq","../utils/constants":"iix0N","axios":"jo6P5","../utils/useShopBrands":"9K7ul","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"kPETN":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./ProductCard":"kPETN","./Filters":"eX3Z1","react":"21dqq","../utils/constants":"iix0N","axios":"jo6P5","../utils/useShopBrands":"9K7ul","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Images/Bestseller.png":"edYu2"}],"kPETN":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$858c = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -39953,24 +39956,35 @@ try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _closeImagePng = require("../Images/closeImage.png");
+var _closeImagePngDefault = parcelHelpers.interopDefault(_closeImagePng);
+var _s = $RefreshSig$();
 let Filters = (props)=>{
+    _s();
     const brandFilter = [];
+    const [sortedProducts, setSortedProducts] = (0, _react.useState)(props.filteredList);
     let sortBasedOnPrice = (e)=>{
-        if (e.target.id === "lessThan500") {
-            const sortedProducts = props.listOfProducts.filter((product1)=>product1.price < 500);
-            props.updateFilteredList(sortedProducts);
-        } else if (e.target.id === "lessThan1000") {
-            const sortedProducts = props.listOfProducts.filter((product1)=>product1.price < 1000);
-            props.updateFilteredList(sortedProducts);
-        }
+        if (e.target.id === "lessThan500") setSortedProducts(props.listOfProducts.filter((product)=>product.price < 500));
+        else if (e.target.id === "lessThan1000") setSortedProducts(props.listOfProducts.filter((product)=>product.price < 1000));
+    };
+    (0, _react.useEffect)(()=>{
+        props.updateFilteredList(sortedProducts);
+    }, [
+        sortedProducts
+    ]);
+    let clearPriceFilter = ()=>{
+        setSortedProducts(props.listOfProducts);
+        document.getElementById("lessThan500").checked = false;
+        document.getElementById("lessThan1000").checked = false;
     };
     const setProductType = ()=>{
         let checkedProductTypes = document.querySelectorAll("input[name=productType]:checked");
         if (!checkedProductTypes.length) props.updateFilteredList(props.listOfProducts);
         else {
             const productsToView = [];
-            for (product of checkedProductTypes)productsToView.push(product.id);
-            const filteredList = props.listOfProducts.filter((product1)=>productsToView.includes(product1.productType));
+            for (let product of checkedProductTypes)productsToView.push(product.id);
+            const filteredList = props.listOfProducts.filter((product)=>productsToView.includes(product.productType));
             props.updateFilteredList(filteredList);
         }
     };
@@ -39978,8 +39992,8 @@ let Filters = (props)=>{
         const checkedBrands = document.querySelectorAll("input[name=brand]:checked");
         if (!checkedBrands.length) props.updateFilteredList(props.listOfProducts);
         else {
-            for (brand of checkedBrands)brandFilter.push(parseInt(brand.id));
-            const filteredList = props.listOfProducts.filter((product1)=>brandFilter.includes(product1.brandId));
+            for (let brand of checkedBrands)brandFilter.push(parseInt(brand.id));
+            const filteredList = props.listOfProducts.filter((product)=>brandFilter.includes(product.brandId));
             props.updateFilteredList(filteredList);
         }
     };
@@ -39988,82 +40002,103 @@ let Filters = (props)=>{
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "sort",
             children: [
+                sortedProducts.length < props.listOfProducts.length && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                    className: "close-btn",
+                    style: {
+                        position: "absolute"
+                    },
+                    src: (0, _closeImagePngDefault.default),
+                    onClick: ()=>clearPriceFilter()
+                }, void 0, false, {
+                    fileName: "Components/Filters.jsx",
+                    lineNumber: 64,
+                    columnNumber: 73
+                }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                     className: "sort-title",
                     children: "View By Price"
                 }, void 0, false, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 53,
+                    lineNumber: 65,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 53,
+                    lineNumber: 65,
                     columnNumber: 66
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 53,
+                    lineNumber: 65,
                     columnNumber: 75
                 }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "sort-1",
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
+                    name: "sort-by-price",
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                            className: "lowToHigh-label",
-                            htmlFor: "lowToHigh",
-                            children: "Less than Rs. 500"
-                        }, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "sort-1",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    className: "lowToHigh-label",
+                                    htmlFor: "lowToHigh",
+                                    children: "Less than Rs. 500"
+                                }, void 0, false, {
+                                    fileName: "Components/Filters.jsx",
+                                    lineNumber: 68,
+                                    columnNumber: 25
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    className: "lowToHigh-btn",
+                                    type: "radio",
+                                    id: "lessThan500",
+                                    name: "pricingFilter",
+                                    value: "Low to High",
+                                    onChange: (e)=>sortBasedOnPrice(e)
+                                }, void 0, false, {
+                                    fileName: "Components/Filters.jsx",
+                                    lineNumber: 69,
+                                    columnNumber: 25
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 55,
+                            lineNumber: 67,
                             columnNumber: 21
                         }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                            className: "lowToHigh-btn",
-                            type: "radio",
-                            id: "lessThan500",
-                            name: "pricingFilter",
-                            value: "Low to High",
-                            onChange: (e)=>sortBasedOnPrice(e)
-                        }, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "sort-2",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
+                                    className: "highToLow-label",
+                                    htmlFor: "lowToHigh",
+                                    children: "Less than Rs. 1000"
+                                }, void 0, false, {
+                                    fileName: "Components/Filters.jsx",
+                                    lineNumber: 73,
+                                    columnNumber: 25
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                    className: "highToLow-btn",
+                                    type: "radio",
+                                    id: "lessThan1000",
+                                    name: "pricingFilter",
+                                    value: "High to Low",
+                                    onChange: (e)=>sortBasedOnPrice(e)
+                                }, void 0, false, {
+                                    fileName: "Components/Filters.jsx",
+                                    lineNumber: 74,
+                                    columnNumber: 25
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 56,
+                            lineNumber: 72,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 54,
-                    columnNumber: 17
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "sort-2",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
-                            className: "highToLow-label",
-                            htmlFor: "lowToHigh",
-                            children: "Less than Rs. 1000"
-                        }, void 0, false, {
-                            fileName: "Components/Filters.jsx",
-                            lineNumber: 59,
-                            columnNumber: 21
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                            className: "highToLow-btn",
-                            type: "radio",
-                            id: "lessThan1000",
-                            name: "pricingFilter",
-                            value: "High to Low",
-                            onChange: (e)=>sortBasedOnPrice(e)
-                        }, void 0, false, {
-                            fileName: "Components/Filters.jsx",
-                            lineNumber: 60,
-                            columnNumber: 21
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "Components/Filters.jsx",
-                    lineNumber: 58,
+                    lineNumber: 66,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -40071,17 +40106,17 @@ let Filters = (props)=>{
                     children: "View by Product Type"
                 }, void 0, false, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 63,
+                    lineNumber: 78,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 63,
+                    lineNumber: 78,
                     columnNumber: 75
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 63,
+                    lineNumber: 78,
                     columnNumber: 84
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -40093,7 +40128,7 @@ let Filters = (props)=>{
                             children: "Lipsticks"
                         }, void 0, false, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 65,
+                            lineNumber: 80,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -40105,13 +40140,13 @@ let Filters = (props)=>{
                             onChange: ()=>setProductType()
                         }, void 0, false, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 66,
+                            lineNumber: 81,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 64,
+                    lineNumber: 79,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -40123,7 +40158,7 @@ let Filters = (props)=>{
                             children: "Foundations"
                         }, void 0, false, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 69,
+                            lineNumber: 84,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -40135,13 +40170,13 @@ let Filters = (props)=>{
                             onChange: ()=>setProductType()
                         }, void 0, false, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 70,
+                            lineNumber: 85,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 68,
+                    lineNumber: 83,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -40153,7 +40188,7 @@ let Filters = (props)=>{
                             children: "Primer"
                         }, void 0, false, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 73,
+                            lineNumber: 88,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -40165,13 +40200,13 @@ let Filters = (props)=>{
                             onChange: ()=>setProductType()
                         }, void 0, false, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 74,
+                            lineNumber: 89,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 72,
+                    lineNumber: 87,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -40183,7 +40218,7 @@ let Filters = (props)=>{
                             children: "Kajal & Eyeliners"
                         }, void 0, false, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 77,
+                            lineNumber: 92,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -40195,13 +40230,13 @@ let Filters = (props)=>{
                             onChange: ()=>setProductType()
                         }, void 0, false, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 78,
+                            lineNumber: 93,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 76,
+                    lineNumber: 91,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -40213,7 +40248,7 @@ let Filters = (props)=>{
                             children: "Blush"
                         }, void 0, false, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 81,
+                            lineNumber: 96,
                             columnNumber: 21
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
@@ -40225,13 +40260,13 @@ let Filters = (props)=>{
                             onChange: ()=>setProductType()
                         }, void 0, false, {
                             fileName: "Components/Filters.jsx",
-                            lineNumber: 82,
+                            lineNumber: 97,
                             columnNumber: 21
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 80,
+                    lineNumber: 95,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -40239,61 +40274,62 @@ let Filters = (props)=>{
                     children: "View By Brand"
                 }, void 0, false, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 84,
+                    lineNumber: 99,
                     columnNumber: 17
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 84,
+                    lineNumber: 99,
                     columnNumber: 68
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                     fileName: "Components/Filters.jsx",
-                    lineNumber: 84,
+                    lineNumber: 99,
                     columnNumber: 77
                 }, undefined),
-                props.shopBrands.map((brand1)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                props.shopBrands.map((brand)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "brandFilters",
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
                                 className: "brand-label",
                                 htmlFor: "brand",
-                                children: brand1.name
+                                children: brand.name
                             }, void 0, false, {
                                 fileName: "Components/Filters.jsx",
-                                lineNumber: 88,
+                                lineNumber: 103,
                                 columnNumber: 29
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                 className: "dynamicBrands",
                                 type: "checkbox",
-                                id: brand1.id,
+                                id: brand.id,
                                 name: "brand",
                                 value: "brand",
                                 onChange: ()=>viewByBrand()
                             }, void 0, false, {
                                 fileName: "Components/Filters.jsx",
-                                lineNumber: 89,
+                                lineNumber: 104,
                                 columnNumber: 29
                             }, undefined)
                         ]
-                    }, brand1.id, true, {
+                    }, brand.id, true, {
                         fileName: "Components/Filters.jsx",
-                        lineNumber: 87,
+                        lineNumber: 102,
                         columnNumber: 25
                     }, undefined))
             ]
         }, void 0, true, {
             fileName: "Components/Filters.jsx",
-            lineNumber: 51,
+            lineNumber: 63,
             columnNumber: 13
         }, undefined)
     }, void 0, false, {
         fileName: "Components/Filters.jsx",
-        lineNumber: 50,
+        lineNumber: 62,
         columnNumber: 9
     }, undefined);
 };
+_s(Filters, "5rmEgooAfmcIbxCmojzL+EBo6o8=");
 _c = Filters;
 exports.default = Filters;
 var _c;
@@ -40304,7 +40340,10 @@ $RefreshReg$(_c, "Filters");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../Images/closeImage.png":"JfMr0","react":"21dqq"}],"JfMr0":[function(require,module,exports) {
+module.exports = require("eebe4f556a0d3412").getBundleURL("1G2bZ") + "closeImage.1016a98c.png" + "?" + Date.now();
+
+},{"eebe4f556a0d3412":"lgJ39"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>(0, _axiosJsDefault.default));
@@ -44716,7 +44755,10 @@ exports.default = useShopBrands;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","axios":"jo6P5","../utils/constants":"iix0N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4wP0d":[function(require,module,exports) {
+},{"react":"21dqq","axios":"jo6P5","../utils/constants":"iix0N","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"edYu2":[function(require,module,exports) {
+module.exports = require("feb15fbd54785066").getBundleURL("1G2bZ") + "Bestseller.5febab73.png" + "?" + Date.now();
+
+},{"feb15fbd54785066":"lgJ39"}],"4wP0d":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$2fde = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

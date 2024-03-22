@@ -1,17 +1,29 @@
+import { useEffect, useState } from "react";
+import close from "../Images/closeImage.png"
+
 let Filters = (props) => {
     const brandFilter = [];
+    const [sortedProducts, setSortedProducts] = useState(props.filteredList);
     let sortBasedOnPrice = (e) => {
         if(e.target.id === 'lessThan500') {
-            const sortedProducts = props.listOfProducts.filter((product) => 
+            setSortedProducts(props.listOfProducts.filter((product) => 
                 product.price<500
-            );
-            props.updateFilteredList(sortedProducts);
+            ));
         } else if(e.target.id === 'lessThan1000') {
-            const sortedProducts = props.listOfProducts.filter((product) => 
+            setSortedProducts(props.listOfProducts.filter((product) => 
                 product.price<1000
-            );
-            props.updateFilteredList(sortedProducts);
+            ));
         }
+    }
+
+    useEffect(() => {
+        props.updateFilteredList(sortedProducts);
+    }, [sortedProducts]);
+
+    let clearPriceFilter = () => {
+        setSortedProducts(props.listOfProducts);
+        document.getElementById("lessThan500").checked = false;
+        document.getElementById("lessThan1000").checked = false;
     }
     
     const setProductType = () => {
@@ -49,16 +61,19 @@ let Filters = (props) => {
     return (
         <div className="filters-container">
             <div className="sort">
-
+                {sortedProducts.length < props.listOfProducts.length && <img className="close-btn" style={{position: "absolute"}} src={close} onClick={() => clearPriceFilter()}></img>}
                 <span className="sort-title">View By Price</span><hr></hr><br />
-                <div className="sort-1">
-                    <label className="lowToHigh-label" htmlFor="lowToHigh">Less than Rs. 500</label>
-                    <input className="lowToHigh-btn" type="radio" id="lessThan500" name="pricingFilter" value="Low to High" onChange={(e) => sortBasedOnPrice(e)} />
-                </div>
-                <div className="sort-2">
-                    <label className="highToLow-label" htmlFor="lowToHigh">Less than Rs. 1000</label>
-                    <input className="highToLow-btn" type="radio" id="lessThan1000" name="pricingFilter" value="High to Low" onChange={(e) => sortBasedOnPrice(e)}/>
-                </div>
+                <form name="sort-by-price">
+                    <div className="sort-1">
+                        <label className="lowToHigh-label" htmlFor="lowToHigh">Less than Rs. 500</label>
+                        <input className="lowToHigh-btn" type="radio" id="lessThan500" name="pricingFilter" value="Low to High" onChange={(e) => sortBasedOnPrice(e)} />
+                    </div>
+                
+                    <div className="sort-2">
+                        <label className="highToLow-label" htmlFor="lowToHigh">Less than Rs. 1000</label>
+                        <input className="highToLow-btn" type="radio" id="lessThan1000" name="pricingFilter" value="High to Low" onChange={(e) => sortBasedOnPrice(e)}/>
+                    </div>
+                </form>
 
                 <span className="filter-title">View by Product Type</span><hr></hr><br />
                 <div className="sort-1">

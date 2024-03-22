@@ -219,8 +219,17 @@ hr {
 }
 
 .bestsellers {
+  height: 200px;
   padding-top: 60px;
-  padding-left: 130px;
+  padding-left: 280px;
+}
+
+.close-btn {
+  width: 20px;
+  margin-top: 5px;
+  margin-left: 275px;
+  display: inline-block;
+  position: absolute;
 }
 
 .login:hover {
